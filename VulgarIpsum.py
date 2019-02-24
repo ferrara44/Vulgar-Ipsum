@@ -42,7 +42,7 @@ def sort():
     og_lines = sum(1 for line in open('source.txt'))
     print("Sorting",og_lines,"words...")
     new_lines = 1
-    lenght = 0
+    length = 0
     word = f.readline()
     new_lines+=1
     buffer=f.readline()
@@ -54,8 +54,8 @@ def sort():
         buffer=f.readline()
         buffer.rstrip()
     print(new_lines, "lines read")
-    lenght = len(word.rstrip())
-    print("Longest word is",word.rstrip(),lenght)
+    length = len(word.rstrip())
+    print("Longest word is",word.rstrip(),length)
 
 def clear():
     if os.path.exists("result.txt"):
