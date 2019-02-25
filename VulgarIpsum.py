@@ -35,27 +35,27 @@ def process():
         word = []
     print(y,"words added to Dictionary")
         
-def sort():
-    f = open("result.txt","r")
-    w = open("sorted.txt","a+")
-    word = ''
-    og_lines = sum(1 for line in open('source.txt'))
-    print("Sorting",og_lines,"words...")
-    new_lines = 1
+def sortlen():
+    
+    f=open("result.txt","r")
+    wordlist = []
     length = 0
     word = f.readline()
-    new_lines+=1
-    buffer=f.readline()
-    while (buffer != ''):
-        if (len(buffer)>len(word)):
-            word=buffer
-            print("change")
-        new_lines+=1
-        buffer=f.readline()
-        buffer.rstrip()
-    print(new_lines, "lines read")
-    length = len(word.rstrip())
-    print("Longest word is",word.rstrip(),length)
+    word.rstrip()
+    current_length = 1
+    while (current_length < 20):
+        wordlist.append(current_length)
+        while(word!=''):
+            print(''.join(word),end=",")
+            if (word.rstrip() == "bani"):
+                print ('vuelta')
+            if (len(word)-1==current_length):
+                wordlist.append(word)
+            word = f.readline()
+        current_length+=1
+        f.seek(0)
+    print (wordlist)
+
 
 def clear():
     if os.path.exists("result.txt"):
