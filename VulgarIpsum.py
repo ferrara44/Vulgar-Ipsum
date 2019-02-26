@@ -38,23 +38,21 @@ def process():
 def sortlen():
     
     f=open("result.txt","r")
-    wordlist = []
+    w=open("sorted.txt","a+")
+    wordlist = [[] for x in range(20)]
     length = 0
-    word = f.readline()
-    word.rstrip()
-    current_length = 1
+    current_length = 0
     while (current_length < 20):
-        wordlist.append(current_length)
+        word = f.readline()
+        word.rstrip()
         while(word!=''):
-            print(''.join(word),end=",")
-            if (word.rstrip() == "bani"):
-                print ('vuelta')
             if (len(word)-1==current_length):
-                wordlist.append(word)
+                wordlist[current_length].append(word.rstrip('\n'))
             word = f.readline()
         current_length+=1
         f.seek(0)
     print (wordlist)
+    w.write(str(wordlist))
 
 
 def clear():
