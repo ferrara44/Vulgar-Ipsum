@@ -40,7 +40,6 @@ def sortlen():
     f=open("result.txt","r")
     w=open("sorted.txt","a+")
     wordlist = [[] for x in range(20)]
-    length = 0
     current_length = 0
     while (current_length < 20):
         word = f.readline()
@@ -52,7 +51,8 @@ def sortlen():
         current_length+=1
         f.seek(0)
     print (wordlist)
-    w.write(str(wordlist))
+    print (len(wordlist[3]))
+    #w.write(str(wordlist))
 
 
 def clear():
