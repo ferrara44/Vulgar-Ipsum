@@ -40,24 +40,27 @@ def sortlen():
     
     f=open("result.txt","r")
     w=open("sorted.txt","a+")
-    wordlist = [[] for x in range(20)]
+    wordList = [[] for x in range(20)]
     current_length = 0
     while (current_length < 20):
         word = f.readline()
         word.rstrip()
         while(word!=''):
             if (len(word)-1==current_length):
-                wordlist[current_length].append(word.rstrip('\n'))
+                wordList[current_length].append(word.rstrip('\n'))
             word = f.readline()
         current_length+=1
         f.seek(0)
     #print (wordlist)
     #print (len(wordlist[3])) #working ok
     #w.write(str(wordlist))
-    return (wordlist)
+    return (wordList)
 
 def sentence():
-    a
+    lengthInWords = randint(1,8) + randint(1,8)
+    wordList = sortlen()
+    for x in range(0,lengthInWords):
+        wordLength = 5
 
 def clear():
     if os.path.exists("result.txt"):
