@@ -1,10 +1,14 @@
 import os
 from random import randint
 
+def main():
+    print("Write 'help()' for well... help")
+
 def help():
     print("print_file() to print source")
     print("print_res() to print result file")
     print("process() to create a result file from a result copied directly from vulgar")
+    
     print("order() to sort words by lenght")
     
 def print_file():
@@ -38,9 +42,9 @@ def process():
 def sortlen():
     
     f=open("result.txt","r")
-    wordList = [[] for x in range(20)]
+    wordList = [[] for x in range(25)]
     currentLength = 0
-    while (currentLength < 20):
+    while (currentLength < 25):
         word = f.readline()
         word.rstrip()
         while(word!=''):
@@ -65,9 +69,17 @@ def sentence():
             if (x==0):
                 print(word.capitalize(),end=' ')
             elif (x==lengthInWords-1):
-                print(word,end='. ')
+                if (randint (0,15)==15):
+                    print(word,end='? ')
+                elif (randint (0,15)==15):
+                    print(word,end='! ')
+                else: print(word,end='. ')
             else:
+                if(randint(0,10)==10):
+                    print (word,end=', ')
                 print (word,end=' ')
+        else:
+            x-=1
 
 def paragraph():
     sentences = randint(1,2)+randint(0,4)
