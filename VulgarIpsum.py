@@ -1,4 +1,5 @@
 import os
+from random import randint
 
 def help():
     print("print_file() to print source")
@@ -31,31 +32,53 @@ def process():
         w.write(''.join(word))
         w.write("\n")
         y+=1
-        #print(''.join(word),end=",")
         word = []
     print(y,"words added to Dictionary")
         
-def sort():
-    f = open("result.txt","r")
-    w = open("sorted.txt","a+")
-    word = ''
-    og_lines = sum(1 for line in open('source.txt'))
-    print("Sorting",og_lines,"words...")
-    new_lines = 1
-    length = 0
-    word = f.readline()
-    new_lines+=1
-    buffer=f.readline()
-    while (buffer != ''):
-        if (len(buffer)>len(word)):
-            word=buffer
-            print("change")
-        new_lines+=1
-        buffer=f.readline()
-        buffer.rstrip()
-    print(new_lines, "lines read")
-    length = len(word.rstrip())
-    print("Longest word is",word.rstrip(),length)
+def sortlen():
+    
+    f=open("result.txt","r")
+    wordList = [[] for x in range(20)]
+    currentLength = 0
+    while (currentLength < 20):
+        word = f.readline()
+        word.rstrip()
+        while(word!=''):
+            if (len(word)-1==currentLength):
+                wordList[currentLength].append(word.rstrip('\n'))
+            word = f.readline()
+        currentLength+=1
+        f.seek(0)
+    return (wordList)
+
+def sentence():
+    lengthInWords = randint(1,8) + randint(0,8) + randint(0,8)
+    wordList = sortlen()
+    for x in range(0,lengthInWords):
+        wordLength = randint(1,5) + randint(0,4)
+        if (wordLength == 9):
+            wordLength += randint(0,4)
+        if (wordLength == 13):
+            wordLength += randint(0,4)
+        if (len(wordList[wordLength])>0):
+            word = wordList[wordLength][randint(0,(len(wordList[wordLength])-1))]
+            if (x==0):
+                print(word.capitalize(),end=' ')
+            elif (x==lengthInWords-1):
+                print(word,end='. ')
+            else:
+                print (word,end=' ')
+
+def paragraph():
+    sentences = randint(1,2)+randint(0,4)
+    for x in range(sentences):
+        sentence()
+    print('\n')
+
+def text():
+    paragraphs = randint(2,7)
+    for x in range(paragraphs):
+        paragraph()
 
 def clear():
     if os.path.exists("result.txt"):
