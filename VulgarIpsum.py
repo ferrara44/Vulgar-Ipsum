@@ -1,4 +1,5 @@
 import os
+from random import randint
 
 def help():
     print("print_file() to print source")
@@ -50,10 +51,13 @@ def sortlen():
             word = f.readline()
         current_length+=1
         f.seek(0)
-    print (wordlist)
-    print (len(wordlist[3]))
+    #print (wordlist)
+    #print (len(wordlist[3])) #working ok
     #w.write(str(wordlist))
+    return (wordlist)
 
+def sentence():
+    a
 
 def clear():
     if os.path.exists("result.txt"):
