@@ -32,14 +32,12 @@ def process():
         w.write(''.join(word))
         w.write("\n")
         y+=1
-        #print(''.join(word),end=",")
         word = []
     print(y,"words added to Dictionary")
         
 def sortlen():
     
     f=open("result.txt","r")
-    w=open("sorted.txt","a+")
     wordList = [[] for x in range(20)]
     current_length = 0
     while (current_length < 20):
@@ -51,16 +49,27 @@ def sortlen():
             word = f.readline()
         current_length+=1
         f.seek(0)
-    #print (wordlist)
-    #print (len(wordlist[3])) #working ok
-    #w.write(str(wordlist))
     return (wordList)
 
 def sentence():
-    lengthInWords = randint(1,8) + randint(1,8)
+    lengthInWords = randint(1,4) + randint(1,8)
     wordList = sortlen()
     for x in range(0,lengthInWords):
-        wordLength = 5
+        wordLength = randint(1,5) + randint(0,4)
+        if (wordLength == 9):
+            wordLength += randint(0,4)
+        if (wordLength == 13):
+            wordLength += randint(0,4)
+        if (len(wordList[wordLength])>0):
+            word = wordList[wordLength][randint(0,(len(wordList[wordLength])-1))]
+            if (x==0):
+                print(word.capitalize(),end=' ')
+            elif (x==lengthInWords-1):
+                print(word,end='. ')
+            else:
+                print (word,end=' ')
+
+
 
 def clear():
     if os.path.exists("result.txt"):
