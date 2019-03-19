@@ -1,8 +1,6 @@
 import os
 from random import randint
 
-
-
 def manual():
     print("manual() to show this list again")
     print("print_file() to print source.")
@@ -12,6 +10,7 @@ def manual():
     print("clear() to delete processed files, in case you want to try another set of words.")
 
 manual()
+
     
 def print_file():
     if os.path.exists("source.txt"):
@@ -48,9 +47,9 @@ def process():
 def getDictionary():
     
     f=open("result.txt","r")
-    wordList = [[] for x in range(20)]
+    wordList = [[] for x in range(25)]
     currentLength = 0
-    while (currentLength < 20):
+    while (currentLength < 25):
         word = f.readline()
         word.rstrip()
         while(word!=''):
@@ -75,9 +74,17 @@ def sentence():
             if (x==0):
                 print(word.capitalize(),end=' ')
             elif (x==lengthInWords-1):
-                print(word,end='. ')
+                if (randint (0,15)==15):
+                    print(word,end='? ')
+                elif (randint (0,15)==15):
+                    print(word,end='! ')
+                else: print(word,end='. ')
             else:
+                if(randint(0,10)==10):
+                    print (word,end=', ')
                 print (word,end=' ')
+        else:
+            x-=1
 
 def paragraph():
     sentences = randint(1,2)+randint(0,4)
