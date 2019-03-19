@@ -4,10 +4,11 @@ from random import randint
 def manual():
     print("manual() to show this list again")
     print("print_file() to print source.")
-    print("print_res() to print result file.")
-    print("process() to create a result file from a result copied directly from vulgar.")
+    print("print_dic() to print dictionary file.")
+    print("addwords() to add words to the dictionary from your source copied directly from vulgar.")
+    print("newdict() to create a dictionary file from your source copied directly from vulgar. This automatically overwrites all previously stored words.")
     print("sentence()/text()/paragraph() to get text of the desired length.")
-    print("clear() to delete processed files, in case you want to try another set of words.")
+    print("clear() to delete dictionary files.")
 
 manual()
     
@@ -19,13 +20,14 @@ def print_file():
         print("source.txt does not exist")
     
     
-def print_res():
-    f = open("result.txt","r")
+def print_dic():
+    f = open("dictionary.txt","r")
     print(f.read())
     
-def process():
+def newdict():
+    clear()
     f = open("source.txt","r")
-    w = open("result.txt","a+")
+    w = open("dictionary.txt","a+")
     y = 0
     word = []
     print("Adding Words to Dictionary:")
@@ -42,10 +44,30 @@ def process():
         y+=1
         word = []
     print(y,"words added to Dictionary")
-        
+
+def addwords():
+    f = open("source.txt","r")
+    w = open("dictionary.txt","a+")
+    y = 0
+    word = []
+    print("Adding Words to Dictionary:")
+    while True:
+        buffer = f.readline()
+        if (buffer == ''):
+            break
+        for x in range(0,len(buffer)):
+            word.append(buffer[x])
+            if (buffer[x+1]==" "):
+                break
+        w.write(''.join(word))
+        w.write("\n")
+        y+=1
+        word = []
+    print(y,"words added to Dictionary")
+
 def getDictionary():
     
-    f=open("result.txt","r")
+    f=open("dictionary.txt","r")
     wordList = [[] for x in range(25)]
     currentLength = 0
     while (currentLength < 25):
@@ -97,8 +119,8 @@ def text():
         paragraph()
 
 def clear():
-    if os.path.exists("result.txt"):
-        os.remove("result.txt")
-        print("result.txt cleared")
+    if os.path.exists("dictionary.txt"):
+        os.remove("dictionary.txt")
+        print("dictionary.txt cleared")
     else:
-        print("result.txt does not exist")
+        print("dictionary.txt does not exist")
