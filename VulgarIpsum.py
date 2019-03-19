@@ -10,7 +10,6 @@ def manual():
     print("clear() to delete processed files, in case you want to try another set of words.")
 
 manual()
-input()
     
 def print_file():
     if os.path.exists("source.txt"):
