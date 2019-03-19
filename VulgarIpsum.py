@@ -10,7 +10,7 @@ def manual():
     print("clear() to delete processed files, in case you want to try another set of words.")
 
 manual()
-
+input()
     
 def print_file():
     if os.path.exists("source.txt"):
@@ -82,7 +82,7 @@ def sentence():
             else:
                 if(randint(0,10)==10):
                     print (word,end=', ')
-                print (word,end=' ')
+                else:print (word,end=' ')
         else:
             x-=1
 
