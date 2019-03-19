@@ -1,19 +1,24 @@
 import os
 from random import randint
 
-def main():
-    print("Write 'help()' for well... help")
+def manual():
+    print("manual() to show this list again")
+    print("print_file() to print source.")
+    print("print_res() to print result file.")
+    print("process() to create a result file from a result copied directly from vulgar.")
+    print("sentence()/text()/paragraph() to get text of the desired length.")
+    print("clear() to delete processed files, in case you want to try another set of words.")
 
-def help():
-    print("print_file() to print source")
-    print("print_res() to print result file")
-    print("process() to create a result file from a result copied directly from vulgar")
-    
-    print("order() to sort words by lenght")
+manual()
+
     
 def print_file():
-    f = open("source.txt","r")
-    print(f.read())
+    if os.path.exists("source.txt"):
+        f = open("source.txt","r")
+        print(f.read())
+    else:
+        print("source.txt does not exist")
+    
     
 def print_res():
     f = open("result.txt","r")
@@ -39,7 +44,7 @@ def process():
         word = []
     print(y,"words added to Dictionary")
         
-def sortlen():
+def getDictionary():
     
     f=open("result.txt","r")
     wordList = [[] for x in range(25)]
@@ -57,7 +62,7 @@ def sortlen():
 
 def sentence():
     lengthInWords = randint(1,8) + randint(0,8) + randint(0,8)
-    wordList = sortlen()
+    wordList = getDictionary()
     for x in range(0,lengthInWords):
         wordLength = randint(1,5) + randint(0,4)
         if (wordLength == 9):
@@ -98,9 +103,3 @@ def clear():
         print("result.txt cleared")
     else:
         print("result.txt does not exist")
-    
-    if os.path.exists("sorted.txt"):
-        os.remove("sorted.txt")
-        print("sorted.txt cleared")
-    else:
-        print("sorted.txt does not exist")
