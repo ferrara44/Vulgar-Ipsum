@@ -14,20 +14,20 @@ manual()
     
 def print_file():
     if os.path.exists("source.txt"):
-        f = open("source.txt","r")
+        f = open("source.txt","r", encoding="utf-8")
         print(f.read())
     else:
         print("source.txt does not exist")
     
     
 def print_dic():
-    f = open("dictionary.txt","r")
+    f = open("dictionary.txt","r", encoding="utf-8")
     print(f.read())
     
 def newdict():
     clear()
-    f = open("source.txt","r")
-    w = open("dictionary.txt","a+")
+    f = open("source.txt","r", encoding="utf-8")
+    w = open("dictionary.txt","a+", encoding="utf-8")
     y = 0
     word = []
     print("Adding Words to Dictionary:")
@@ -46,8 +46,8 @@ def newdict():
     print(y,"words added to Dictionary")
 
 def addwords():
-    f = open("source.txt","r")
-    w = open("dictionary.txt","a+")
+    f = open("source.txt","r", encoding="utf-8")
+    w = open("dictionary.txt","a+", encoding="utf-8")
     y = 0
     word = []
     print("Adding Words to Dictionary:")
@@ -67,7 +67,7 @@ def addwords():
 
 def getDictionary():
     
-    f=open("dictionary.txt","r")
+    f=open("dictionary.txt","r", encoding="utf-8")
     wordList = [[] for x in range(25)]
     currentLength = 0
     while (currentLength < 25):
