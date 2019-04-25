@@ -18,7 +18,6 @@ wordList = browser.find_element_by_xpath("/html/body/div[5]/div/div[2]/div/div/m
 print("WordList Copied")
 browser.close()
 for proc in psutil.process_iter():
-    # check whether the process name matches
     if proc.name() == gecko:
         proc.kill()
 
