@@ -649,4 +649,72 @@ console.error: BroadcastService:
 
 ###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
-[GPU 12276, Chrome_ChildT
+[GPU 12276, Chrome_ChildT1556186346681	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Facu\\AppData\\Local\\Temp\\rust_mozprofile.ELnWd4LTh4e1"
+1556186349543	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1556186349545	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1556186349545	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1556186358463	Marionette	INFO	Listening on port 56704
+1556186358834	Marionette	WARN	TLS certificate errors will be ignored for this session
+1556186376873	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+bail@chrome://marionette/content/sync.js:223:64
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: http://%(server)s/dummy/blocklist//buckets/monitor/collections/changes/records?_expected=%221556112119390%22 is not a valid URL..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:203:13
+
+1556186395812	Marionette	INFO	Stopped listening on port 56704
+[Child 14580, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1555951821/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child 14580, Chrome_ChildThread] WARNI[Child 13116, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1555951821/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child 12504, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1555951821/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[GPU 6680, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1555951821/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1556187367340	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Facu\\AppData\\Local\\Temp\\rust_mozprofile.nhFRd0511H4E"
+*** You are running in headless mode.
+1556187369367	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1556187369368	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1556187369369	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1556187376515	Marionette	INFO	Listening on port 56830
+1556187376936	Marionette	WARN	TLS certificate errors will be ignored for this session
+1556187392984	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+bail@chrome://marionette/content/sync.js:223:64
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: http://%(server)s/dummy/blocklist//buckets/monitor/collections/changes/records?_expected=%221556112119390%22 is not a valid URL..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:203:13
+
+1556187411215	Marionette	INFO	Stopped listening on port 56830
+[Child 13448, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1555951821/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child 13448, Chrome_ChildThread] W[Parent 15020, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1555951821/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child 12596, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1555951821/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Parent 15020, Gecko_IOThread] WARNING: file z:/task_1555951821/build/src/ipc/chromium/src/base/process_util_win.cc, line 160
+1556187533332	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Facu\\AppData\\Local\\Temp\\rust_mozprofile.fGsdszlKHquj"
+*** You are running in headless mode.
+1556187535435	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1556187535436	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1556187535437	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1556187542436	Marionette	INFO	Listening on port 56910
+1556187542916	Marionette	WARN	TLS certificate errors will be ignored for this session
+1556187557753	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+bail@chrome://marionette/content/sync.js:223:64
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: http://%(server)s/dummy/blocklist//buckets/monitor/collections/changes/records?_expected=%221556112119390%22 is not a valid URL..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:203:13
+
+1556187575781	Marionette	INFO	Stopped listening on port 56910
+[Child 8160, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1555951821/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child 14848, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1555951821/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
