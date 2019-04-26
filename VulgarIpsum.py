@@ -1,5 +1,13 @@
 import os
 from random import randint
+from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
+import psutil
+
+#Firefox Headless Settings#
+options = Options()
+gecko = 'geckodriver.exe'
+options.add_argument('-headless')
 
 def manual():
     print("manual() to show this list again")
@@ -9,7 +17,7 @@ def manual():
     print("newdict() to create a dictionary file from your source copied directly from vulgar. This automatically overwrites all previously stored words.")
     print("sentence()/text()/paragraph() to get text of the desired length.")
     print("clear() to delete dictionary files.")
-
+    print("getLang() to get a new language from VulgarLang")
 manual()
     
 def print_file():
@@ -45,7 +53,7 @@ def newdict():
         word = []
     print(y,"words added to Dictionary")
 
-def addwords():
+def addWords():
     f = open("source.txt","r", encoding="utf-8")
     w = open("dictionary.txt","a+", encoding="utf-8")
     y = 0
@@ -124,3 +132,38 @@ def clear():
         print("dictionary.txt cleared")
     else:
         print("dictionary.txt does not exist")
+    if os.path.exists("source.txt"):
+        os.remove("source.txt")
+        print("source.txt cleared")
+    else:
+        print("source.txt does not exist")
+
+def getLang():
+    
+    browser = webdriver.Firefox(options=options)
+    print("Firefox Initialized successfully")
+    browser.get('http://vulgarlang.com')
+    print("Accessing VulgarLang...")
+    submit = browser.find_element_by_xpath("/html/body/div[5]/div/div[2]/div/div/main/article/div[1]/div[1]/center/button")
+    submit.click()
+    print("Generating new language...")
+    wordList = browser.find_element_by_xpath("/html/body/div[5]/div/div[2]/div/div/main/article/div[1]/div[3]/div[1]/div[4]/ul").text
+    # At this point the whole language is in wordList
+    print("Acquired list of words...")
+    browser.close()
+    for proc in psutil.process_iter():
+        if proc.name() == gecko:
+            proc.kill()
+    print("Firefox and gecko closed.")
+    
+    clear()
+    w = open("source.txt","a+", encoding="utf-8")
+    w.write(wordList)
+    w.close()
+    print('wordList content:')
+    print(wordList)
+    print('source file content:')
+    print_file()
+    addWords()
+    print("Printing test paragraph:")
+    paragraph()
