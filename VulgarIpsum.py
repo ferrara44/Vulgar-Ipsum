@@ -13,10 +13,11 @@ def manual():
     print("manual() to show this list again")
     print("print_file() to print source.")
     print("print_dic() to print dictionary file.")
-    print("addwords() to add words to the dictionary from your source copied directly from vulgar.")
-    print("newdict() to create a dictionary file from your source copied directly from vulgar. This automatically overwrites all previously stored words.")
+    print("addWords() to add words to the dictionary from your source copied directly from vulgar.")
+    print("newDict() to create a dictionary file from your source copied directly from vulgar. This automatically overwrites all previously stored words.")
     print("sentence()/text()/paragraph() to get text of the desired length.")
-    print("clear() to delete dictionary files.")
+    print("clearDict() to delete dictionary files.")
+    print("clearSource() to delete dictionary files.")
     print("getLang() to get a new language from VulgarLang")
 manual()
     
@@ -29,11 +30,14 @@ def print_file():
     
     
 def print_dic():
-    f = open("dictionary.txt","r", encoding="utf-8")
-    print(f.read())
+    if os.path.exists("dictionary.txt"):
+        f = open("dictionary.txt","r", encoding="utf-8")
+        print(f.read())
+    else:
+        print("dictionary.txt does not exist")
     
-def newdict():
-    clear()
+def newDict():
+    clearDict()
     f = open("source.txt","r", encoding="utf-8")
     w = open("dictionary.txt","a+", encoding="utf-8")
     y = 0
@@ -126,12 +130,14 @@ def text():
     for x in range(paragraphs):
         paragraph()
 
-def clear():
+def clearDict():
     if os.path.exists("dictionary.txt"):
         os.remove("dictionary.txt")
         print("dictionary.txt cleared")
     else:
         print("dictionary.txt does not exist")
+
+def clearSource():
     if os.path.exists("source.txt"):
         os.remove("source.txt")
         print("source.txt cleared")
@@ -155,8 +161,8 @@ def getLang():
         if proc.name() == gecko:
             proc.kill()
     print("Firefox and gecko closed.")
-    
-    clear()
+    clearSource()
+    clearDict()
     w = open("source.txt","a+", encoding="utf-8")
     w.write(wordList)
     w.close()
