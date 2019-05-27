@@ -13,15 +13,16 @@ def manual():
     print("manual() to show this list again")
     print("print_file() to print source.")
     print("print_dic() to print dictionary file.")
-    print("addWords() to add words to the dictionary from your source copied directly from vulgar.")
-    print("newDict() to create a dictionary file from your source copied directly from vulgar. This automatically overwrites all previously stored words.")
+    print("add_words() to add words to the dictionary from your source copied directly from vulgar.")
+    print("new_dict() to create a dictionary file from your source copied directly from vulgar.")
+    print("This automatically overwrites all previously stored words.")
     print("sentence()/text()/paragraph() to get text of the desired length.")
-    print("clearDict() to delete dictionary files.")
-    print("clearSource() to delete dictionary files.")
-    print("getLang() to get a new language from VulgarLang")
+    print("clear_dict() to delete dictionary files.")
+    print("clear_source() to delete dictionary files.")
+    print("get_lang() to get a new language from VulgarLang")
 manual()
     
-def print_file():
+def print_file(): #prints the source file imported directly from VulgarLang.
     if os.path.exists("source.txt"):
         f = open("source.txt","r", encoding="utf-8")
         print(f.read())
@@ -29,15 +30,15 @@ def print_file():
         print("source.txt does not exist")
     
     
-def print_dic():
+def print_dic(): #Prints the processed dictionary
     if os.path.exists("dictionary.txt"):
         f = open("dictionary.txt","r", encoding="utf-8")
         print(f.read())
     else:
         print("dictionary.txt does not exist")
     
-def newDict():
-    clearDict()
+def new_dict(): #Clears dictionary and fills with words from source file.
+    clear_dict()
     f = open("source.txt","r", encoding="utf-8")
     w = open("dictionary.txt","a+", encoding="utf-8")
     y = 0
@@ -57,7 +58,7 @@ def newDict():
         word = []
     print(y,"words added to Dictionary")
 
-def addWords():
+def add_words(): #Adds words from source file to dictionary.
     f = open("source.txt","r", encoding="utf-8")
     w = open("dictionary.txt","a+", encoding="utf-8")
     y = 0
@@ -77,7 +78,7 @@ def addWords():
         word = []
     print(y,"words added to Dictionary")
 
-def getDictionary():
+def get_dictionary(): #returns a list of all words in the dictionary
     
     f=open("dictionary.txt","r", encoding="utf-8")
     wordList = [[] for x in range(25)]
@@ -95,13 +96,13 @@ def getDictionary():
 
 def sentence():
     lengthInWords = randint(1,8) + randint(0,8) + randint(0,8)
-    wordList = getDictionary()
+    wordList = get_dictionary()
     for x in range(0,lengthInWords):
         wordLength = randint(1,5) + randint(0,4)
         if (wordLength == 9):
             wordLength += randint(0,4)
-        if (wordLength == 13):
-            wordLength += randint(0,4)
+            if (wordLength == 13):
+                wordLength += randint(0,4)
         if (len(wordList[wordLength])>0):
             word = wordList[wordLength][randint(0,(len(wordList[wordLength])-1))]
             if (x==0):
@@ -130,21 +131,21 @@ def text():
     for x in range(paragraphs):
         paragraph()
 
-def clearDict():
+def clear_dict():
     if os.path.exists("dictionary.txt"):
         os.remove("dictionary.txt")
         print("dictionary.txt cleared")
     else:
         print("dictionary.txt does not exist")
 
-def clearSource():
+def clear_source():
     if os.path.exists("source.txt"):
         os.remove("source.txt")
         print("source.txt cleared")
     else:
         print("source.txt does not exist")
 
-def getLang():
+def get_lang(): #Automated web scraping: Takes a language from vulgarlang and processes it.
     
     browser = webdriver.Firefox(options=options)
     print("Firefox Initialized successfully")
@@ -161,8 +162,8 @@ def getLang():
         if proc.name() == gecko:
             proc.kill()
     print("Firefox and gecko closed.")
-    clearSource()
-    clearDict()
+    clear_source()
+    clear_dict()
     w = open("source.txt","a+", encoding="utf-8")
     w.write(wordList)
     w.close()
@@ -170,6 +171,6 @@ def getLang():
     print(wordList)
     print('source file content:')
     print_file()
-    addWords()
+    add_words()
     print("Printing test paragraph:")
     paragraph()
